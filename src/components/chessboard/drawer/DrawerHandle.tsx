@@ -20,10 +20,10 @@ const DrawerHandle = ({ onClick, handleText }) => {
 
   return (
     <div>
-      <span onClick={onClick} className={"btn"} css={style}>
+      {/* <span onClick={onClick} className={"btn"} css={style}>
         {handleText}
-      </span>
-      <Image
+      </span> */}
+      {/* <Image
         alt={`Drawer Knob`}
         filename={"drawer_knob.png"}
         style={{
@@ -34,7 +34,7 @@ const DrawerHandle = ({ onClick, handleText }) => {
           transform: "translate(-50%, 42%) scale(0.5) rotate(180deg)",
           zIndex: -1,
         }}
-      />
+      /> */}
     </div>
   );
 };

@@ -63,8 +63,16 @@ const DrawerMain = ({ isOpen, closeDrawer, ...props }) => {
   };
 
   return (
-    <>
-      <BackgroundImage
+    <div 
+    style={{
+      display: 'flex', // This enables flexbox layout
+      justifyContent: 'center', // This centers the child horizontally in the container
+      alignItems: 'center', // This centers the child vertically in the container
+      height: '100%', // Make sure the div takes full height of its parent
+      position: 'relative', // Ensures the div is positioned relative to its parent
+      // Uncomment if needed: boxShadow: '.1rem 1rem 1rem rgba(0,0,0,.2)',
+    }}>
+      {/* <BackgroundImage
         Tag="div"
         fluid={feltImage}
         style={{
@@ -72,15 +80,16 @@ const DrawerMain = ({ isOpen, closeDrawer, ...props }) => {
           position: "relative",
           backgroundSize: "5%",
           backgroundRepeat: "repeat",
-          boxShadow: ".1rem 1rem 1rem rgba(0,0,0,.2)",
+          // boxShadow: ".1rem 1rem 1rem rgba(0,0,0,.2)",
         }}
-      >
-        <LeftSidePiece />
+      > */}
+        {/* <LeftSidePiece />
+       
         <BottomSidePiece />
-        <RightSidePiece />
+        <RightSidePiece /> */}
         <DrawerMenu closeDrawer={closeDrawer} isOpen={isOpen} />
-      </BackgroundImage>
-    </>
+      {/* </BackgroundImage> */}
+    </div>
   );
 };
 

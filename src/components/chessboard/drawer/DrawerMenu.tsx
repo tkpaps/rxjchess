@@ -8,12 +8,50 @@ import {
 import GameOptionsForm from "./GameOptionsForm";
 import { mq } from "src/styles/constants";
 import useMobileView from "src/hooks/useMobileView";
+import styled from "@emotion/styled";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes, faCopy } from "@fortawesome/free-solid-svg-icons";
+import { actions, store } from "src/store";
+import Select from "react-select";
+import { usePubNub } from "pubnub-react";
+import { StyledButton } from "src/components/StyledButton";
 
 const DrawerMenu = ({ closeDrawer, isOpen }) => {
   const [gameMode, setGameMode] = useState<PlayModes | undefined>(undefined);
 
+  // this is where we want to initialize the game
   const handleOnClick = (option: PlayModes) => {
     setGameMode(option);
+
+    const playerArr: Player[] = ["W", "B"];
+
+    const playerVal = playerArr[Math.round(Math.random())]
+
+    const options = {
+      gameType: "REGULAR",
+      player: playerVal,
+      increment: 0,
+      maxTime: 10,
+      playMode: "PLAY COMPUTER",
+      gameId: undefined,
+    };
+
+    // if (playMode === "PLAY FRIEND") {
+    //   const myGameId = (function () {
+    //     return Math.random().toString(36).substr(2, 9);
+    //   })();
+    //   gameIdRef.current = myGameId;
+    //   setGameId(myGameId);
+    //   pubNub.unsubscribeAll();
+    //   pubNub.addListener({ message: handleOnlineGameCreate });
+    //   pubNub.subscribe({ channels: [myGameId], withPresence: true });
+    //   pubNub.publish({
+    //     channel: myGameId,
+    //     message: { type: "CHANNEL_READY" },
+    //   });
+      // setIsFormComplete(false);
+      closeDrawer();
+      store.dispatch(actions.newGame(options));
   };
 
   const mobileView = useMobileView();
@@ -33,16 +71,14 @@ const DrawerMenu = ({ closeDrawer, isOpen }) => {
   return (
     <div
       css={{
-        boxShadow: "inset 0 1rem 3rem 0 #000000",
         position: "absolute",
-        top: 0,
         ...spacing[0],
         [mq[0]]: { ...spacing[1] },
         [mq[1]]: { ...spacing[2] },
         [mq[2]]: { ...spacing[3] },
       }}
     >
-      {gameMode && (
+      {/* {gameMode && (
         <div
           css={{
             position: "absolute",
@@ -68,7 +104,7 @@ const DrawerMenu = ({ closeDrawer, isOpen }) => {
             closeDrawer={closeDrawer}
           />
         </div>
-      )}
+      )} */}
       <div
         css={{
           position: "absolute",
@@ -77,7 +113,7 @@ const DrawerMenu = ({ closeDrawer, isOpen }) => {
           left: 0,
           right: 0,
           display: "flex",
-          justifyContent: "flex-start",
+          justifyContent: "center",
           alignItems: "center",
           [mq[0]]: {
             flexDirection: "column",
@@ -88,21 +124,21 @@ const DrawerMenu = ({ closeDrawer, isOpen }) => {
       >
         {mobileView && gameMode ? null : (
           <>
-            <DrawerMenuOption
-              onClick={() => handleOnClick("PLAY FRIEND")}
-              text="PLAY A FRIEND ONLINE"
-              icon={faUserFriends}
-              selected={gameMode ? gameMode == "PLAY FRIEND" : undefined}
-              position={0}
-            />
+              {/* <DrawerMenuOption
+                onClick={() => handleOnClick("PLAY FRIEND")}
+                text="PLAY NOW"
+                icon={faChessBoard}
+                selected={gameMode ? gameMode == "PLAY FRIEND" : undefined}
+                position={0}
+              /> */}
             <DrawerMenuOption
               onClick={() => handleOnClick("PLAY COMPUTER")}
-              text="PLAY THE COMPUTER"
-              icon={faLaptopCode}
+              text="PLAY NOW"
+              icon={faChessBoard}
               selected={gameMode ? gameMode == "PLAY COMPUTER" : undefined}
               position={1}
             />
-            <DrawerMenuOption
+            {/* <DrawerMenuOption
               onClick={() => handleOnClick("PLAY OVER THE BOARD")}
               text="PLAY OVER THE BOARD"
               icon={faChessBoard}
@@ -110,7 +146,7 @@ const DrawerMenu = ({ closeDrawer, isOpen }) => {
                 gameMode ? gameMode == "PLAY OVER THE BOARD" : undefined
               }
               position={2}
-            />
+            /> */}
           </>
         )}
       </div>

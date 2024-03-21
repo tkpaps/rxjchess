@@ -41,25 +41,26 @@ const Chessboard = () => {
     "INITIALIZING",
     "READY",
     "GAME OVER",
+    // "NOT STARTED",
   ].includes(gameStatus);
 
   const boardStyles = css`
-    animation: ${appear} 1s ease;
+    // animation: ${appear} 1s ease;
     position: relative;
     text-align: center;
-    transition: all 0.5s;
+
     width: ${isGameActive ? "80vh" : "80vw"};
     height: ${isGameActive ? "80vh" : "80vw"};
-    margin-top: ${isGameActive ? "0px" : "-72%"};
+    margin-top: ${isGameActive ? "0px" : "-100%"};
     ${mq[0]} {
       width: ${isGameActive ? "70vw" : "90vw"};
       height: ${isGameActive ? "70vw" : "90vw"};
-      margin-top: ${isGameActive ? "0px" : "-78%"};
+      margin-top: ${isGameActive ? "0px" : "-100%"};
     }
     ${mq[1]} {
       width: 100vw;
       height: 95vw;
-      margin-top: ${isGameActive ? "0px" : "-72%"};
+      margin-top: ${isGameActive ? "0px" : "-100%"};
     }
   `;
 

@@ -23,10 +23,10 @@ const DrawerMenuOption = ({
       css={{
         transition: "all .2s ease-in",
         position: "relative",
-        width: "33.3%",
+        width: "50%",
         padding: "0 5rem",
         opacity: selected === false && "0%",
-        transform: selected && `translateX(${-100 * position}%)`,
+        // transform: selected && `translateX(${-100 * position}%)`,
         [mq[0]]: {
           width: "95%",
           height: "80%",
@@ -37,7 +37,7 @@ const DrawerMenuOption = ({
       <div
         onClick={onClick}
         css={{
-          transition: "all .2s",
+          // transition: "all .2s",
           backgroundColor: "rgba(250,245,245,1)",
           borderRadius: "1.5rem",
           padding: "1.5rem",

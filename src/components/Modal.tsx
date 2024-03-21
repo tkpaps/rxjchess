@@ -74,51 +74,51 @@ const QuitGameModal = ({ quitter }: ModalProps) => {
   );
 };
 
-const AboutModal = () => {
-  const textStyles = css`
-    font-size: 2rem;
-    font-family: "Times New Roman";
-    p {
-      margin-bottom: 24px;
-    }
-  `;
+// const AboutModal = () => {
+//   const textStyles = css`
+//     font-size: 2rem;
+//     font-family: "Times New Roman";
+//     p {
+//       margin-bottom: 24px;
+//     }
+//   `;
 
-  const iconStyles = css`
-    transform: scale(0.7);
-  `;
+//   const iconStyles = css`
+//     transform: scale(0.7);
+//   `;
 
-  return (
-    <div css={textStyles}>
-      <p>{`I built this site using React, Redux, RxJs (hence the name!) and a handful of other frontend technologies. I always enjoyed 
-    playing chess and over the years racked up a lot of hours on apps like chess.com and lichess. At some point 
-    during the pandemic, I decided it would be fun to build my own app with a little more visual flair than what 
-    these popular apps generally offer, and so this site was born.`}</p>
-      <p>{`I hope you enjoy RxJChess as much as I enjoyed building it. Please feel free to reach out with any questions, 
-    comments, or feedback. I'd especially love to discuss alternate approaches to building a chess engine.`}</p>
-      <p css={{ margin: "42px 0 0 0" }}>{`- Prashanth Selvam`}</p>
-      <div css={{ display: "flex", justifyContent: "center" }}>
-        <SocialIcon
-          css={iconStyles}
-          url="https://github.com/prashanthselvam"
-          target="_blank"
-          rel="noopener noreferrer"
-        />
-        <SocialIcon
-          css={iconStyles}
-          url="https://www.linkedin.com/in/prashanthselvam/"
-          target="_blank"
-          rel="noopener noreferrer"
-        />
-        <SocialIcon
-          css={iconStyles}
-          url="https://twitter.com/preshdamesh/"
-          target="_blank"
-          rel="noopener noreferrer"
-        />
-      </div>
-    </div>
-  );
-};
+//   return (
+//     <div css={textStyles}>
+//       <p>{`I built this site using React, Redux, RxJs (hence the name!) and a handful of other frontend technologies. I always enjoyed 
+//     playing chess and over the years racked up a lot of hours on apps like chess.com and lichess. At some point 
+//     during the pandemic, I decided it would be fun to build my own app with a little more visual flair than what 
+//     these popular apps generally offer, and so this site was born.`}</p>
+//       <p>{`I hope you enjoy RxJChess as much as I enjoyed building it. Please feel free to reach out with any questions, 
+//     comments, or feedback. I'd especially love to discuss alternate approaches to building a chess engine.`}</p>
+//       <p css={{ margin: "42px 0 0 0" }}>{`- Prashanth Selvam`}</p>
+//       <div css={{ display: "flex", justifyContent: "center" }}>
+//         <SocialIcon
+//           css={iconStyles}
+//           url="https://github.com/prashanthselvam"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         />
+//         <SocialIcon
+//           css={iconStyles}
+//           url="https://www.linkedin.com/in/prashanthselvam/"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         />
+//         <SocialIcon
+//           css={iconStyles}
+//           url="https://twitter.com/preshdamesh/"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         />
+//       </div>
+//     </div>
+//   );
+// };
 
 const MultiplayerStatusModal = ({ multiplayerGameStatus }: ModalProps) => {
   let modalText = "";
@@ -320,7 +320,7 @@ export const Modal = () => {
         {type === "MULTIPLAYER_STATUS" && (
           <MultiplayerStatusModal {...modalProps} />
         )}
-        {type === "ABOUT" && <AboutModal />}
+        {/* {type === "ABOUT" && <AboutModal />} */}
       </DialogContent>
     </DialogOverlay>
   );

@@ -81,10 +81,7 @@ const GameOptionsForm = ({
     const { player, increment, maxTime } = formValues;
     const playerArr: Player[] = ["W", "B"];
 
-    const playerVal =
-      player!.value === "R"
-        ? playerArr[Math.round(Math.random())]
-        : player!.value;
+    const playerVal = player!.value === "R" ? playerArr[Math.round(Math.random())] : player!.value;
 
     return {
       gameType: gameTypeOptions[0].value,
